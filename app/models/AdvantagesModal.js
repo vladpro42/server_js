@@ -13,13 +13,16 @@ AdvantagesModal.init(
         name: {
             type: DataTypes.STRING,
             allowNull: false,
+            validate: {
+                len: [1, 50],
+                notEmpty: true,
+            }
         },
         description: {
             type: DataTypes.TEXT,
         },
         className: {
             type: DataTypes.STRING,
-            allowNull: false,
         },
         icon: {
             type: DataTypes.STRING,
@@ -30,6 +33,6 @@ AdvantagesModal.init(
 export { AdvantagesModal };
 
 // (async () => {
-//     await AdvantagesModal.sync({ alter: true });
+//     await AdvantagesModal.sync({ force: true });
 //     // Code here
 // })();
