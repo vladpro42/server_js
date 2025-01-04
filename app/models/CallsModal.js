@@ -20,7 +20,7 @@ CallsModal.init(
             allowNull: false,
         },
         email: {
-            type: DataTypes.TEXT,
+            type: DataTypes.STRING,
         },
         formTypeId: {
             type: DataTypes.INTEGER,
@@ -35,3 +35,9 @@ CallsModal.init(
     { sequelize, modelName: 'calls' },
 );
 export { CallsModal };
+
+
+
+// (async () => {
+//     await CallsModal.sync({  });
+// })();
