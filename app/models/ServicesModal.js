@@ -11,6 +11,7 @@ ServicesModal.init(
             type: DataTypes.INTEGER,
             autoIncrement: true,
             primaryKey: true,
+            allowNull: false,
         },
         name: {
             type: DataTypes.STRING,
@@ -30,9 +31,8 @@ ServicesModal.init(
         },
         isActive: {
             type: DataTypes.BOOLEAN,
+            defaultValue: true
         },
-
-
 
     },
     {sequelize, modelName: 'services'}
@@ -40,6 +40,5 @@ ServicesModal.init(
 export  {ServicesModal}
 
 // (async () => {
-//     await sequelize.sync({ alter: true });
-//     // Code here
+//     await ServicesModal.sync({ force: true });
 // })();

@@ -7,11 +7,21 @@ import callsRouter from './app/routes/CallsRouter.js';
 import formTypesRouter from './app/routes/FormTypesRouter.js';
 import settingsSiteRouter from './app/routes/SettingsSiteRouter.js';
 import siteRouter from './app/routes/SiteRouter.js';
+import path from "path";
+import * as url from "url";
+import {upload} from "./app/middlewares/uploadImages.js";
 const app = express();
 
+export const __filename = url.fileURLToPath(import.meta.url);
+export const __dirname = path.dirname(__filename);
+
+app.use(upload.single('image'));
 
 app.use(express.json());
-app.use('/images', express.static('static/images'));
+app.use(express.urlencoded({ extended: true }));
+
+
+app.use('/static', express.static(path.join(__dirname, 'static')));
 app.use('/users', userRouter);
 app.use('/services', servicesRouter);
 app.use('/news', newsRouter);
