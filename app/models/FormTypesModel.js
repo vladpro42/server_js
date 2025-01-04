@@ -1,9 +1,9 @@
 import { sequelize } from '../db/postgresql.js';
 import { DataTypes, Model } from 'sequelize';
 
-class FormTypes extends Model {}
+class FormTypesModel extends Model {}
 
-FormTypes.init(
+FormTypesModel.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -17,4 +17,9 @@ FormTypes.init(
     },
     { sequelize, modelName: 'formTypes' },
 );
-export { FormTypes };
+export { FormTypesModel };
+
+// (async () => {
+//     await FormTypesModel.sync({  });
+//     // Code here
+// })();

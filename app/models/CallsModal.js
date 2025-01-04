@@ -1,6 +1,6 @@
 import { sequelize } from '../db/postgresql.js';
 import { DataTypes, Model } from 'sequelize';
-import { FormTypes } from './FormTypes.js';
+import { FormTypesModel } from './FormTypesModel.js';
 
 class CallsModal extends Model {}
 
@@ -25,7 +25,7 @@ CallsModal.init(
         formTypeId: {
             type: DataTypes.INTEGER,
             references: {
-                model: FormTypes,
+                model: FormTypesModel,
                 key: 'id'
             },
             onDelete: 'CASCADE',

@@ -118,7 +118,6 @@ class AdvantagesController extends MainController {
             return res.status(500).json({ message: 'Ошибка сервера', err: err.message });
 
         }
-
     }
 }
 
